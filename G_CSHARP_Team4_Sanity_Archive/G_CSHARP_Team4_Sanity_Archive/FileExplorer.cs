@@ -56,11 +56,49 @@ namespace G_CSHARP_Team4_Sanity_Archive
             }
             foreach (FileInfo file in selectedDriverDirectory.GetFiles())
             {
-                if (file.Name.EndsWith(".txt"))
-                {
                     dirListBox.Items.Add(file.Name);
+            }
+        }
+        /* TODO
+        public void Compress(ListBox dirListBox, TextBox pathTextBox)
+        {
+            List<String> filelist = new List<String>();
+            foreach (var item in dirListBox.SelectedItems)
+            {
+                filelist.Add(pathTextBox.Text + item.ToString());
+            }
+            string path = @"temp/";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(@"temp/");
+                foreach (string file in filelist)
+                {
                 }
             }
+            Directory.CreateDirectory(@"temp/");
+            foreach (var item2 in filelist)
+            {
+                MessageBox.Show(item2);
+            }
+        }
+        */
+        public void CalculateDiskSpace(ListBox dirListBox, TextBox pathTextBox, Label spaceLabel)
+        {
+            long count = 0;
+            List<String> FileList = new List<String>();
+            foreach (String item in dirListBox.SelectedItems)
+            {
+                FileList.Add(pathTextBox.Text + item);
+            }
+            foreach (String item in FileList)
+            {
+                if (File.Exists(item))
+                {
+                    FileInfo selectedFiles = new FileInfo(item);
+                    count += selectedFiles.Length;
+                }
+            }
+            spaceLabel.Text = count.ToString() + "bytes";
         }
     }
 }

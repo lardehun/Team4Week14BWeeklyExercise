@@ -86,6 +86,7 @@
             this.dirListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.dirListBox.Size = new System.Drawing.Size(416, 212);
             this.dirListBox.TabIndex = 4;
+            this.dirListBox.SelectedIndexChanged += new System.EventHandler(this.dirListBox_SelectedIndexChanged);
             // 
             // openButton
             // 
@@ -105,6 +106,7 @@
             this.compressButton.TabIndex = 6;
             this.compressButton.Text = "Compress";
             this.compressButton.UseVisualStyleBackColor = true;
+            this.compressButton.Click += new System.EventHandler(this.compressButton_Click);
             // 
             // copyButton
             // 

@@ -32,5 +32,15 @@ namespace G_CSHARP_Team4_Sanity_Archive
         {
             fileExplorer.DriverSelectChangeFillListBox(dirListBox, pathTextBox, driverComboBox);
         }
+
+        private void compressButton_Click(object sender, EventArgs e)
+        {
+ //           fileExplorer.Compress(dirListBox, pathTextBox);
+        }
+
+        private void dirListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fileExplorer.CalculateDiskSpace(dirListBox, pathTextBox, spaceLabel);
+        }
     }
 }
