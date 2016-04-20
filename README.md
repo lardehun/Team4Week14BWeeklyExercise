@@ -1,6 +1,7 @@
 # Week 14B Weekly exercise - Sanity archive
 
 <b>As a User I would like to have an application in order to archive and handle my files.</b>
+<ul>
 <li>I would like to browse my files on drive.</li>
 <li>I would like to compress a selected file.</li>
 <li>I would like to crypt a selected file.</li>
