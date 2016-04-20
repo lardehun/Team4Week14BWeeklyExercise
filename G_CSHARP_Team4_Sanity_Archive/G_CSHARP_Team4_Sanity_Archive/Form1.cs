@@ -22,7 +22,7 @@ namespace G_CSHARP_Team4_Sanity_Archive
             explorerPanel.Visible = true;
             propertiesPanel.Visible = false;
             driverComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            fileExplorer.FillDriverComboBox(driverComboBox); 
+            fileExplorer.FillDriverComboBox(driverComboBox);
         }
 
         private void openButton_Click(object sender, EventArgs e)
@@ -44,6 +44,16 @@ namespace G_CSHARP_Team4_Sanity_Archive
         private void propertiesButton_Click(object sender, EventArgs e)
         {
             propertiesPanel.Visible = true;
+        }
+
+        private void compressButton_Click(object sender, EventArgs e)
+        {
+            //           fileExplorer.Compress(dirListBox, pathTextBox);
+        }
+
+        private void dirListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fileExplorer.CalculateDiskSpace(dirListBox, pathTextBox, spaceLabel);
         }
     }
 }
