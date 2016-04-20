@@ -19,8 +19,10 @@ namespace G_CSHARP_Team4_Sanity_Archive
         public Form1()
         {
             InitializeComponent();
+            explorerPanel.Visible = true;
+            propertiesPanel.Visible = false;
             driverComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            fileExplorer.FillDriverComboBox(driverComboBox);
+            fileExplorer.FillDriverComboBox(driverComboBox); 
         }
 
         private void openButton_Click(object sender, EventArgs e)
@@ -31,6 +33,17 @@ namespace G_CSHARP_Team4_Sanity_Archive
         private void driverComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             fileExplorer.DriverSelectChangeFillListBox(dirListBox, pathTextBox, driverComboBox);
+        }
+
+        private void backToExplorerPanel_Click(object sender, EventArgs e)
+        {
+            explorerPanel.Visible = true;
+            propertiesPanel.Visible = false;
+        }
+
+        private void propertiesButton_Click(object sender, EventArgs e)
+        {
+            propertiesPanel.Visible = true;
         }
     }
 }
