@@ -12,6 +12,7 @@ namespace G_CSHARP_Team4_Sanity_Archive
     class FileExplorer
     {
         DriveInfo[] allDrives = DriveInfo.GetDrives();
+        private const int SaltSize = 8;
 
 
         /// <summary>
@@ -133,5 +134,41 @@ namespace G_CSHARP_Team4_Sanity_Archive
             }
             spaceLabel.Text = count.ToString() + "bytes";
         }
+
+ /*      public void Encrypt(ListBox dirListBox, TextBox pathTextBox) // Not working because of my OS?
+        {
+            List<String> FileList = new List<String>();
+            foreach (String item in dirListBox.SelectedItems)
+            {
+                FileList.Add(pathTextBox.Text + item);
+            }
+            foreach (String item in FileList)
+            {
+                if (File.Exists(item))
+                {
+                    FileInfo selectedFiles = new FileInfo(item);
+                    selectedFiles.Encrypt();
+                }
+            }
+        } */
+        
+
+ /*       public void Decrypt(ListBox dirListBox, TextBox pathTextBox) // Not working because of my OS?
+        {
+            List<String> FileList = new List<String>();
+            foreach (String item in dirListBox.SelectedItems)
+            {
+                FileList.Add(pathTextBox.Text + item);
+            }
+            foreach (String item in FileList)
+            {
+                if (File.Exists(item))
+                {
+                    FileInfo selectedFiles = new FileInfo(item);
+                    selectedFiles.Encrypt();
+                }
+            }
+        } */
+        
     }
 }

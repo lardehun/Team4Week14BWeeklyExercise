@@ -48,6 +48,8 @@
             this.unHideButton = new System.Windows.Forms.Button();
             this.hideButton = new System.Windows.Forms.Button();
             this.backToExplorerPanel = new System.Windows.Forms.Button();
+            this.encrypt_btn = new System.Windows.Forms.Button();
+            this.decrypt_btn = new System.Windows.Forms.Button();
             this.explorerPanel.SuspendLayout();
             this.propertiesPanel.SuspendLayout();
             this.SuspendLayout();
@@ -174,6 +176,8 @@
             // 
             // explorerPanel
             // 
+            this.explorerPanel.Controls.Add(this.decrypt_btn);
+            this.explorerPanel.Controls.Add(this.encrypt_btn);
             this.explorerPanel.Controls.Add(this.propertiesPanel);
             this.explorerPanel.Controls.Add(this.driverLabel);
             this.explorerPanel.Controls.Add(this.pathLabel);
@@ -255,6 +259,26 @@
             this.backToExplorerPanel.UseVisualStyleBackColor = true;
             this.backToExplorerPanel.Click += new System.EventHandler(this.backToExplorerPanel_Click);
             // 
+            // encrypt_btn
+            // 
+            this.encrypt_btn.Location = new System.Drawing.Point(89, 324);
+            this.encrypt_btn.Name = "encrypt_btn";
+            this.encrypt_btn.Size = new System.Drawing.Size(75, 23);
+            this.encrypt_btn.TabIndex = 15;
+            this.encrypt_btn.Text = "Encrypt";
+            this.encrypt_btn.UseVisualStyleBackColor = true;
+            this.encrypt_btn.Click += new System.EventHandler(this.encrypt_btn_Click);
+            // 
+            // decrypt_btn
+            // 
+            this.decrypt_btn.Location = new System.Drawing.Point(348, 324);
+            this.decrypt_btn.Name = "decrypt_btn";
+            this.decrypt_btn.Size = new System.Drawing.Size(75, 23);
+            this.decrypt_btn.TabIndex = 16;
+            this.decrypt_btn.Text = "Decrypt";
+            this.decrypt_btn.UseVisualStyleBackColor = true;
+            this.decrypt_btn.Click += new System.EventHandler(this.decrypt_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +316,8 @@
         private System.Windows.Forms.Button readOnlyButton;
         private System.Windows.Forms.Button unHideButton;
         private System.Windows.Forms.Button hideButton;
+        private System.Windows.Forms.Button decrypt_btn;
+        private System.Windows.Forms.Button encrypt_btn;
     }
 }
 

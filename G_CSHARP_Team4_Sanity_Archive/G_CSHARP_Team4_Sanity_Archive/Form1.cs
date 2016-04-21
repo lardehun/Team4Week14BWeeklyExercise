@@ -76,5 +76,15 @@ namespace G_CSHARP_Team4_Sanity_Archive
         {
             propChanger.ChangeFileToNotReadOnly(dirListBox, pathTextBox);
         }
+
+        private void encrypt_btn_Click(object sender, EventArgs e)
+        {
+            fileExplorer.Encrypt(dirListBox, pathTextBox);
+        }
+
+        private void decrypt_btn_Click(object sender, EventArgs e)
+        {
+            fileExplorer.Decrypt(dirListBox, pathTextBox);
+        }
     }
 }
