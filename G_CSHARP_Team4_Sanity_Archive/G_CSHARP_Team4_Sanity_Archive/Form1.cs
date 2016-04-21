@@ -15,8 +15,8 @@ namespace G_CSHARP_Team4_Sanity_Archive
     {
         DriveInfo[] allDrives = DriveInfo.GetDrives();
         FileExplorer fileExplorer = new FileExplorer();
+        PropertiesChange propChanger = new PropertiesChange();
         FileMover fileMover = new FileMover();
-
         public Form1()
         {
             InitializeComponent();
@@ -66,6 +66,26 @@ namespace G_CSHARP_Team4_Sanity_Archive
         private void pasteButton_Click(object sender, EventArgs e)
         {
             fileMover.PasteCopiedFiles(pasteButton, pathTextBox, dirListBox);
+        }
+
+        private void hideButton_Click(object sender, EventArgs e)
+        {
+            propChanger.ChangeFileToHidden(dirListBox, pathTextBox);
+        }
+
+        private void unHideButton_Click(object sender, EventArgs e)
+        {
+            propChanger.ChangeFileToNotHidden(dirListBox, pathTextBox);
+        }
+
+        private void readOnlyButton_Click(object sender, EventArgs e)
+        {
+            propChanger.ChangeFileToReadOnly(dirListBox, pathTextBox);
+        }
+
+        private void removeReadOnlyButton_Click(object sender, EventArgs e)
+        {
+            propChanger.ChangeFileToNotReadOnly(dirListBox, pathTextBox);
         }
     }
 }
