@@ -107,6 +107,13 @@ namespace G_CSHARP_Team4_Sanity_Archive
             }
         }
         */
+
+        /// <summary>
+        /// When one or several files are listed in a listbox, it will add the amount of disk space they use on the HDD, and display it in a label.
+        /// </summary>
+        /// <param name="dirListBox"></param>
+        /// <param name="pathTextBox"></param>
+        /// <param name="spaceLabel"></param>
         public void CalculateDiskSpace(ListBox dirListBox, TextBox pathTextBox, Label spaceLabel)
         {
             long count = 0;
