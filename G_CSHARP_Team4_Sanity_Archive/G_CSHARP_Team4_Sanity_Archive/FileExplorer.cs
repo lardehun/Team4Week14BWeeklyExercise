@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace G_CSHARP_Team4_Sanity_Archive
 {
@@ -43,8 +44,8 @@ namespace G_CSHARP_Team4_Sanity_Archive
             }
             else
             {
-                string text = File.ReadAllText(pathTextBox.Text + dirListBox.SelectedItem.ToString());
-                MessageBox.Show(text);
+                string file = pathTextBox.Text + dirListBox.SelectedItem.ToString();
+                Process.Start("notepad.exe", file);
             }
         }
 
