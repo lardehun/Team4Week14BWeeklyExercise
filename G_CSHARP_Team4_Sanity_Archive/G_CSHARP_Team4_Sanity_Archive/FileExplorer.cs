@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -43,8 +44,8 @@ namespace G_CSHARP_Team4_Sanity_Archive
             }
             else
             {
-                string text = File.ReadAllText(pathTextBox.Text + dirListBox.SelectedItem.ToString());
-                MessageBox.Show(text);
+                string file = pathTextBox.Text + dirListBox.SelectedItem.ToString();
+                Process.Start("notepad.exe", file);
             }
         }
 

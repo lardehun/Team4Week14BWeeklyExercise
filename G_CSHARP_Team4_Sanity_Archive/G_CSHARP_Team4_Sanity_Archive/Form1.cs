@@ -15,10 +15,13 @@ namespace G_CSHARP_Team4_Sanity_Archive
     {
         DriveInfo[] allDrives = DriveInfo.GetDrives();
         FileExplorer fileExplorer = new FileExplorer();
+        PropertiesChange propChanger = new PropertiesChange();
 
         public Form1()
         {
             InitializeComponent();
+            explorerPanel.Visible = true;
+            propertiesPanel.Visible = false;
             driverComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             fileExplorer.FillDriverComboBox(driverComboBox);
         }
@@ -33,14 +36,45 @@ namespace G_CSHARP_Team4_Sanity_Archive
             fileExplorer.DriverSelectChangeFillListBox(dirListBox, pathTextBox, driverComboBox);
         }
 
+        private void backToExplorerPanel_Click(object sender, EventArgs e)
+        {
+            explorerPanel.Visible = true;
+            propertiesPanel.Visible = false;
+        }
+
+        private void propertiesButton_Click(object sender, EventArgs e)
+        {
+            propertiesPanel.Visible = true;
+        }
+
         private void compressButton_Click(object sender, EventArgs e)
         {
- //           fileExplorer.Compress(dirListBox, pathTextBox);
+            //           fileExplorer.Compress(dirListBox, pathTextBox);
         }
 
         private void dirListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             fileExplorer.CalculateDiskSpace(dirListBox, pathTextBox, spaceLabel);
+        }
+
+        private void hideButton_Click(object sender, EventArgs e)
+        {
+            propChanger.ChangeFileToHidden(dirListBox, pathTextBox);
+        }
+
+        private void unHideButton_Click(object sender, EventArgs e)
+        {
+            propChanger.ChangeFileToNotHidden(dirListBox, pathTextBox);
+        }
+
+        private void readOnlyButton_Click(object sender, EventArgs e)
+        {
+            propChanger.ChangeFileToReadOnly(dirListBox, pathTextBox);
+        }
+
+        private void removeReadOnlyButton_Click(object sender, EventArgs e)
+        {
+            propChanger.ChangeFileToNotReadOnly(dirListBox, pathTextBox);
         }
     }
 }
