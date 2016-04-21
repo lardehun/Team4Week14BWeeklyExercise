@@ -16,7 +16,7 @@ namespace G_CSHARP_Team4_Sanity_Archive
         DriveInfo[] allDrives = DriveInfo.GetDrives();
         FileExplorer fileExplorer = new FileExplorer();
         PropertiesChange propChanger = new PropertiesChange();
-
+        FileMover fileMover = new FileMover();
         public Form1()
         {
             InitializeComponent();
@@ -55,6 +55,17 @@ namespace G_CSHARP_Team4_Sanity_Archive
         private void dirListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             fileExplorer.CalculateDiskSpace(dirListBox, pathTextBox, spaceLabel);
+            fileMover.EnableCopy(pathTextBox, dirListBox, copyButton);
+        }
+
+        private void copyButton_Click(object sender, EventArgs e)
+        {
+            fileMover.SelectedItemFileList(dirListBox, pathTextBox, copyButton, pasteButton);
+        }
+
+        private void pasteButton_Click(object sender, EventArgs e)
+        {
+            fileMover.PasteCopiedFiles(pasteButton, pathTextBox, dirListBox);
         }
 
         private void hideButton_Click(object sender, EventArgs e)
