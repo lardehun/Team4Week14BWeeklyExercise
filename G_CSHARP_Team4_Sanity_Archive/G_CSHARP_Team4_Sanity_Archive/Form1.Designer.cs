@@ -115,21 +115,25 @@
             // 
             // copyButton
             // 
+            this.copyButton.Enabled = false;
             this.copyButton.Location = new System.Drawing.Point(257, 295);
             this.copyButton.Name = "copyButton";
             this.copyButton.Size = new System.Drawing.Size(75, 23);
             this.copyButton.TabIndex = 7;
             this.copyButton.Text = "Copy";
             this.copyButton.UseVisualStyleBackColor = true;
+            this.copyButton.Click += new System.EventHandler(this.copyButton_Click);
             // 
             // pasteButton
             // 
+            this.pasteButton.Enabled = false;
             this.pasteButton.Location = new System.Drawing.Point(348, 295);
             this.pasteButton.Name = "pasteButton";
             this.pasteButton.Size = new System.Drawing.Size(75, 23);
             this.pasteButton.TabIndex = 8;
             this.pasteButton.Text = "Paste";
             this.pasteButton.UseVisualStyleBackColor = true;
+            this.pasteButton.Click += new System.EventHandler(this.pasteButton_Click);
             // 
             // xxxxx
             // 
@@ -151,6 +155,7 @@
             // 
             // cutButton
             // 
+            this.cutButton.Enabled = false;
             this.cutButton.Location = new System.Drawing.Point(257, 324);
             this.cutButton.Name = "cutButton";
             this.cutButton.Size = new System.Drawing.Size(75, 23);
@@ -170,7 +175,6 @@
             // 
             // explorerPanel
             // 
-            this.explorerPanel.Controls.Add(this.propertiesPanel);
             this.explorerPanel.Controls.Add(this.driverLabel);
             this.explorerPanel.Controls.Add(this.pathLabel);
             this.explorerPanel.Controls.Add(this.cutButton);
@@ -192,7 +196,7 @@
             // propertiesPanel
             // 
             this.propertiesPanel.Controls.Add(this.backToExplorerPanel);
-            this.propertiesPanel.Location = new System.Drawing.Point(0, 0);
+            this.propertiesPanel.Location = new System.Drawing.Point(12, 23);
             this.propertiesPanel.Name = "propertiesPanel";
             this.propertiesPanel.Size = new System.Drawing.Size(426, 347);
             this.propertiesPanel.TabIndex = 14;
@@ -213,6 +217,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 382);
             this.Controls.Add(this.explorerPanel);
+            this.Controls.Add(this.propertiesPanel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.explorerPanel.ResumeLayout(false);
