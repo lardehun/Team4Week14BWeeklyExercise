@@ -38,19 +38,15 @@ namespace G_CSHARP_Team4_Sanity_Archive
             pasteButton.Enabled = true;
         }
 
-        public void PasteCopiedFiles(Button pasteButton, TextBox pathTextBox, ListBox dirListBox)
+        public void PasteCopiedFiles(Button pasteButton, TextBox pathTextBox)
         {
             string backupDir = pathTextBox.Text;
             if (pasteButton.Enabled == true)
             {
-
-
                 for (int i = 0; selectedFileNames.Count > i; i++)
                 {
                         File.Copy(selectedFilePathList[i], backupDir + selectedFileNames[i], true);
                 }
-
-   
             }
             pasteButton.Enabled = false;
         }

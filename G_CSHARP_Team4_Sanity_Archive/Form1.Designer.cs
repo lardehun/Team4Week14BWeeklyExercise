@@ -122,21 +122,25 @@
             // 
             // copyButton
             // 
+            this.copyButton.Enabled = false;
             this.copyButton.Location = new System.Drawing.Point(257, 295);
             this.copyButton.Name = "copyButton";
             this.copyButton.Size = new System.Drawing.Size(75, 23);
             this.copyButton.TabIndex = 7;
             this.copyButton.Text = "Copy";
             this.copyButton.UseVisualStyleBackColor = true;
+            this.copyButton.Click += new System.EventHandler(this.copyButton_Click);
             // 
             // pasteButton
             // 
+            this.pasteButton.Enabled = false;
             this.pasteButton.Location = new System.Drawing.Point(348, 295);
             this.pasteButton.Name = "pasteButton";
             this.pasteButton.Size = new System.Drawing.Size(75, 23);
             this.pasteButton.TabIndex = 8;
             this.pasteButton.Text = "Paste";
             this.pasteButton.UseVisualStyleBackColor = true;
+            this.pasteButton.Click += new System.EventHandler(this.pasteButton_Click);
             // 
             // xxxxx
             // 
@@ -158,6 +162,7 @@
             // 
             // cutButton
             // 
+            this.cutButton.Enabled = false;
             this.cutButton.Location = new System.Drawing.Point(257, 324);
             this.cutButton.Name = "cutButton";
             this.cutButton.Size = new System.Drawing.Size(75, 23);
@@ -295,7 +300,7 @@
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.explorerPanel);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "File explorer";
             this.explorerPanel.ResumeLayout(false);
             this.explorerPanel.PerformLayout();
             this.propertiesPanel.ResumeLayout(false);
