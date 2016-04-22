@@ -49,7 +49,11 @@ namespace G_CSHARP_Team4_Sanity_Archive
 
         private void propertiesButton_Click(object sender, EventArgs e)
         {
-            propertiesPanel.Visible = true;
+            if (dirListBox.Items.Count > 0)
+            {
+                propertiesPanel.Visible = true;
+            }
+            
         }
 
         private void compressButton_Click(object sender, EventArgs e)
@@ -83,25 +87,28 @@ namespace G_CSHARP_Team4_Sanity_Archive
             propChanger.ChangeFileToNotReadOnly(dirListBox, pathTextBox);
         }
 
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
-        {
-            
-            searchOption.search(searchTextBox, dirListBox, pathTextBox);
-        }
-
         private void searchReset_Click(object sender, EventArgs e)
         {
-            searchOption.FillBack(pathTextBox, dirListBox);
+            fileExplorer.Refresh(pathTextBox, dirListBox);
         }
 
         private void pasteButton_Click(object sender, EventArgs e)
         {
             fileMover.PasteCopiedFiles(pasteButton, pathTextBox);
+            fileExplorer.Refresh(pathTextBox, dirListBox);
         }
 
         private void copyButton_Click(object sender, EventArgs e)
         {
             fileMover.SelectedItemFileList(dirListBox, pathTextBox, copyButton, pasteButton);
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (dirListBox.Items.Count > 0)
+            {
+                searchOption.search(searchTextBox, dirListBox, pathTextBox);
+            }
         }
     }
 }

@@ -49,8 +49,7 @@
             this.hideButton = new System.Windows.Forms.Button();
             this.backToExplorerPanel = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.srcLbl = new System.Windows.Forms.Label();
-            this.searchReset = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.explorerPanel.SuspendLayout();
             this.propertiesPanel.SuspendLayout();
             this.SuspendLayout();
@@ -269,34 +268,23 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(152, 20);
             this.searchTextBox.TabIndex = 14;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
-            // srcLbl
+            // searchButton
             // 
-            this.srcLbl.AutoSize = true;
-            this.srcLbl.Location = new System.Drawing.Point(239, 371);
-            this.srcLbl.Name = "srcLbl";
-            this.srcLbl.Size = new System.Drawing.Size(41, 13);
-            this.srcLbl.TabIndex = 15;
-            this.srcLbl.Text = "Search";
-            // 
-            // searchReset
-            // 
-            this.searchReset.Location = new System.Drawing.Point(158, 366);
-            this.searchReset.Name = "searchReset";
-            this.searchReset.Size = new System.Drawing.Size(75, 23);
-            this.searchReset.TabIndex = 16;
-            this.searchReset.Text = "Reset";
-            this.searchReset.UseVisualStyleBackColor = true;
-            this.searchReset.Click += new System.EventHandler(this.searchReset_Click);
+            this.searchButton.Location = new System.Drawing.Point(205, 366);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 16;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 400);
-            this.Controls.Add(this.searchReset);
-            this.Controls.Add(this.srcLbl);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.explorerPanel);
             this.Name = "Form1";
@@ -332,8 +320,7 @@
         private System.Windows.Forms.Button unHideButton;
         private System.Windows.Forms.Button hideButton;
         private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Label srcLbl;
-        private System.Windows.Forms.Button searchReset;
+        private System.Windows.Forms.Button searchButton;
     }
 }
 

@@ -133,5 +133,26 @@ namespace G_CSHARP_Team4_Sanity_Archive
             }
             spaceLabel.Text = count.ToString() + "bytes";
         }
+
+        /// <summary>
+        /// Fill back the dirListbox from the pathTextBox
+        /// </summary>
+        /// <param name="pathTextBox"></param>
+        /// <param name="dirListBox"></param>
+        public void Refresh(TextBox pathTextBox, ListBox dirListBox)
+        {
+            dirListBox.Items.Clear();
+            string path = pathTextBox.Text;
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            foreach (DirectoryInfo dir in dirInfo.GetDirectories())
+            {
+                //add each directory name to the listbox
+                dirListBox.Items.Add(dir.Name);
+            }
+            foreach (FileInfo file in dirInfo.GetFiles())
+            {
+                dirListBox.Items.Add(file.Name);
+            }
+        }
     }
 }

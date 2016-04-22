@@ -18,36 +18,14 @@ namespace G_CSHARP_Team4_Sanity_Archive
         /// <param name="pathTextBox"></param>
         public void search(TextBox searchTextBox,ListBox dirListBox,TextBox pathTextBox)
         {
-            
+            dirListBox.ClearSelected();
             string searchText = searchTextBox.Text;
-            int index = dirListBox.FindString(searchText);
             for (int i = 0; i < dirListBox.Items.Count; i++)
             {
-                if (i != index)
+                if (dirListBox.Items[i].ToString().ToLower().Contains(searchText))
                 {
-                    dirListBox.Items.RemoveAt(i);
+                    dirListBox.SetSelected(i, true);
                 }
-            }
-        }
-
-        /// <summary>
-        /// Fill back the dirListbox from the pathTextBox
-        /// </summary>
-        /// <param name="pathTextBox"></param>
-        /// <param name="dirListBox"></param>
-        public void FillBack(TextBox pathTextBox,ListBox dirListBox)
-        {
-            dirListBox.Items.Clear();
-            string path = pathTextBox.Text;
-            DirectoryInfo dirInfo = new DirectoryInfo(path);
-            foreach (DirectoryInfo dir in dirInfo.GetDirectories())
-            {
-                //add each directory name to the listbox
-                dirListBox.Items.Add(dir.Name);
-            }
-            foreach (FileInfo file in dirInfo.GetFiles())
-            {
-                dirListBox.Items.Add(file.Name);
             }
         }
     }
