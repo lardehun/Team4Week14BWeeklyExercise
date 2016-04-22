@@ -50,6 +50,7 @@
             this.backToExplorerPanel = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.explorerPanel.SuspendLayout();
             this.propertiesPanel.SuspendLayout();
             this.SuspendLayout();
@@ -181,6 +182,7 @@
             // 
             // explorerPanel
             // 
+            this.explorerPanel.Controls.Add(this.button1);
             this.explorerPanel.Controls.Add(this.propertiesPanel);
             this.explorerPanel.Controls.Add(this.driverLabel);
             this.explorerPanel.Controls.Add(this.pathLabel);
@@ -279,6 +281,16 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(88, 324);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Decompress";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,6 +333,7 @@
         private System.Windows.Forms.Button hideButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 

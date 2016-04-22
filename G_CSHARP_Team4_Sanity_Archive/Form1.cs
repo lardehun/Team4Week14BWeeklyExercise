@@ -58,7 +58,7 @@ namespace G_CSHARP_Team4_Sanity_Archive
 
         private void compressButton_Click(object sender, EventArgs e)
         {
-            //           fileExplorer.Compress(dirListBox, pathTextBox);
+            fileExplorer.Compress(dirListBox, pathTextBox);
         }
 
         private void dirListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,6 +109,11 @@ namespace G_CSHARP_Team4_Sanity_Archive
             {
                 searchOption.search(searchTextBox, dirListBox, pathTextBox);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fileExplorer.Uncompress(dirListBox, pathTextBox);
         }
     }
 }

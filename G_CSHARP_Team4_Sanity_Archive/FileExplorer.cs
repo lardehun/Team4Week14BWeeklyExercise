@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,29 +86,42 @@ namespace G_CSHARP_Team4_Sanity_Archive
                     dirListBox.Items.Add(file.Name);
             }
         }
-        /* TODO
+
         public void Compress(ListBox dirListBox, TextBox pathTextBox)
         {
             List<String> filelist = new List<String>();
+            String ZipPath = pathTextBox.Text + "compressed.zip";
             foreach (var item in dirListBox.SelectedItems)
             {
-                filelist.Add(pathTextBox.Text + item.ToString());
+                filelist.Add(item.ToString());
             }
-            string path = @"temp/";
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(@"temp/");
-                foreach (string file in filelist)
+            string path = Path.GetTempPath() + @"tmp";
+                Directory.CreateDirectory(path + "\\");
+                foreach (var item in filelist)
                 {
+                    File.Copy(pathTextBox.Text + item, path + "/" + item, true);
                 }
-            }
-            Directory.CreateDirectory(@"temp/");
-            foreach (var item2 in filelist)
+            ZipFile.CreateFromDirectory(path, ZipPath);
+            Directory.Delete(path);
+        }
+        
+        public void Uncompress(ListBox dirListBox, TextBox pathTextBox)
+        {
+            List<String> filelist = new List<String>();
+            if (!dirListBox.SelectedItem.ToString().EndsWith(".zip"))
             {
-                MessageBox.Show(item2);
+                MessageBox.Show("Sorry. You are only allowed to decompress zip files.");
+            }
+            try
+            {
+                ZipFile.ExtractToDirectory(pathTextBox.Text + dirListBox.SelectedItem.ToString(), pathTextBox.Text);
+            }
+            catch(IOException e)
+            {
+                MessageBox.Show(e.ToString());
             }
         }
-        */
+
 
         /// <summary>
         /// When one or several files are listed in a listbox, it will add the amount of disk space they use on the HDD, and display it in a label.
