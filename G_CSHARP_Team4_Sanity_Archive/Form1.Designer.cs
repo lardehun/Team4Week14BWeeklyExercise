@@ -168,6 +168,7 @@
             this.cutButton.TabIndex = 11;
             this.cutButton.Text = "Cut";
             this.cutButton.UseVisualStyleBackColor = true;
+            this.cutButton.Click += new System.EventHandler(this.cutButton_Click);
             // 
             // propertiesButton
             // 

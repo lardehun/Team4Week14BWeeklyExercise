@@ -10,45 +10,62 @@ namespace G_CSHARP_Team4_Sanity_Archive
 {
     class FileMover
     {
-        public List<String> selectedFilePathList = new List<String>();
-        public List<String> selectedFileNames = new List<String>();
-        
-        public void EnableCopy(TextBox pathTextBox, ListBox dirListBox, Button copyButton)
+        public List<String> selectedBackupFilePathList = new List<String>();
+        public List<String> selectedBackupFileNameList = new List<String>();
+        public int copyOrPasteOption = (int)MoveOptions.None;
+
+        public void EnableCopyAndCutButton(TextBox pathTextBox, ListBox dirListBox, Button theButton)
         {
-            
             if (dirListBox.SelectedIndex == -1)
             {
-                copyButton.Enabled = false;
+                theButton.Enabled = false;
             }
             else
             {
-                copyButton.Enabled = true;
+                theButton.Enabled = true;
             }
         }
 
-        public void SelectedItemFileList(ListBox dirListBox, TextBox pathTextBox, Button copyButton, Button pasteButton)
+        public void SelectedItemFileList(ListBox dirListBox, TextBox pathTextBox, Button copyButton, Button pasteButton, Button cutButton)
         {
             foreach (String item in dirListBox.SelectedItems)
             {
-                selectedFilePathList.Add(pathTextBox.Text + item);
-                selectedFileNames.Add(item);
+                selectedBackupFilePathList.Add(pathTextBox.Text + item);
+                selectedBackupFileNameList.Add(item);
             }
-            MessageBox.Show("The item in clipboard.");
+            MessageBox.Show("The selected file(s) on the clipboard.");
             copyButton.Enabled = false;
+            cutButton.Enabled = false;
             pasteButton.Enabled = true;
         }
 
-        public void PasteCopiedFiles(Button pasteButton, TextBox pathTextBox)
+        public void PasteFiles(Button pasteButton, TextBox pathTextBox)
         {
             string backupDir = pathTextBox.Text;
-            if (pasteButton.Enabled == true)
+
+            try
             {
-                for (int i = 0; selectedFileNames.Count > i; i++)
+                for (int i = 0; selectedBackupFileNameList.Count > i; i++)
                 {
-                        File.Copy(selectedFilePathList[i], backupDir + selectedFileNames[i], true);
+                    if (copyOrPasteOption == 1)
+                    {
+                        File.Copy(selectedBackupFilePathList[i], backupDir + selectedBackupFileNameList[i], true);
+                    }
+                    if (copyOrPasteOption == 2)
+                    {
+                        File.Move(selectedBackupFilePathList[i], backupDir + selectedBackupFileNameList[i]);
+                    }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("There was a problem while trying to copy the file(s).");
+            }
+
             pasteButton.Enabled = false;
+            copyOrPasteOption = (int)MoveOptions.None;
+            selectedBackupFileNameList.Clear();
+            selectedBackupFilePathList.Clear();
         }
     }
 }

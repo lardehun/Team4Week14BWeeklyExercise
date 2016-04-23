@@ -53,7 +53,6 @@ namespace G_CSHARP_Team4_Sanity_Archive
             {
                 propertiesPanel.Visible = true;
             }
-            
         }
 
         private void compressButton_Click(object sender, EventArgs e)
@@ -64,7 +63,8 @@ namespace G_CSHARP_Team4_Sanity_Archive
         private void dirListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             fileExplorer.CalculateDiskSpace(dirListBox, pathTextBox, spaceLabel);
-            fileMover.EnableCopy(pathTextBox, dirListBox, copyButton);
+            fileMover.EnableCopyAndCutButton(pathTextBox, dirListBox, copyButton);
+            fileMover.EnableCopyAndCutButton(pathTextBox, dirListBox, cutButton);
         }
 
         private void hideButton_Click(object sender, EventArgs e)
@@ -94,13 +94,16 @@ namespace G_CSHARP_Team4_Sanity_Archive
 
         private void pasteButton_Click(object sender, EventArgs e)
         {
-            fileMover.PasteCopiedFiles(pasteButton, pathTextBox);
+            fileMover.PasteFiles(pasteButton, pathTextBox);
             fileExplorer.Refresh(pathTextBox, dirListBox);
         }
+        
 
         private void copyButton_Click(object sender, EventArgs e)
         {
-            fileMover.SelectedItemFileList(dirListBox, pathTextBox, copyButton, pasteButton);
+            fileMover.copyOrPasteOption = (int)MoveOptions.Copy;
+            fileMover.SelectedItemFileList(dirListBox, pathTextBox, copyButton, pasteButton, cutButton);
+            fileExplorer.Refresh(pathTextBox, dirListBox);
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -109,6 +112,13 @@ namespace G_CSHARP_Team4_Sanity_Archive
             {
                 searchOption.search(searchTextBox, dirListBox, pathTextBox);
             }
+        }
+
+        private void cutButton_Click(object sender, EventArgs e)
+        {
+            fileMover.copyOrPasteOption = (int)MoveOptions.Move;
+            fileMover.SelectedItemFileList(dirListBox, pathTextBox, copyButton, pasteButton, cutButton);
+            fileExplorer.Refresh(pathTextBox, dirListBox);
         }
     }
 }
