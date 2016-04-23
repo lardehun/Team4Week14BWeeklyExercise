@@ -42,6 +42,7 @@
             this.cutButton = new System.Windows.Forms.Button();
             this.propertiesButton = new System.Windows.Forms.Button();
             this.explorerPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.propertiesPanel = new System.Windows.Forms.Panel();
             this.removeReadOnlyButton = new System.Windows.Forms.Button();
             this.readOnlyButton = new System.Windows.Forms.Button();
@@ -182,6 +183,7 @@
             // 
             // explorerPanel
             // 
+            this.explorerPanel.Controls.Add(this.button1);
             this.explorerPanel.Controls.Add(this.propertiesPanel);
             this.explorerPanel.Controls.Add(this.driverLabel);
             this.explorerPanel.Controls.Add(this.pathLabel);
@@ -200,6 +202,16 @@
             this.explorerPanel.Name = "explorerPanel";
             this.explorerPanel.Size = new System.Drawing.Size(426, 347);
             this.explorerPanel.TabIndex = 13;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(88, 324);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Decompress";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // propertiesPanel
             // 
@@ -322,6 +334,7 @@
         private System.Windows.Forms.Button hideButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
