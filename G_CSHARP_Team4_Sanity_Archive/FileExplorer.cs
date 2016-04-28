@@ -33,15 +33,38 @@ namespace G_CSHARP_Team4_Sanity_Archive
         /// </summary>
         /// <param name="pathTextBox"></param>
         /// <param name="dirListBox"></param>
-        public void OpenDirectoryAndRefreshTheBox(TextBox pathTextBox,ListBox dirListBox)
+        public void OpenDirectoryAndRefreshTheBox(TextBox pathTextBox, ListBox dirListBox)
         {
             if (dirListBox.SelectedIndex < 0 || !dirListBox.SelectedItem.ToString().EndsWith(".txt"))
             {
                 //Get a directory info from the selected item of the listbox and the textbox
                 DirectoryInfo selectedDirectory = new DirectoryInfo(pathTextBox.Text + dirListBox.SelectedItem.ToString());
-                pathTextBox.Text = pathTextBox.Text + dirListBox.SelectedItem.ToString() + @"\";
+                if (!dirListBox.SelectedItem.ToString().Equals(".."))
+                {
+                    pathTextBox.Text = pathTextBox.Text + dirListBox.SelectedItem.ToString() + @"\";
+                }
+                else
+                {
+                    String[] words = pathTextBox.Text.Split('\\');
+                    pathTextBox.Text = "";
+                    for (int i = 0; i < words.Length - 2; i++)
+                    {
+                        pathTextBox.Text += words[i] + "\\";
+                    }
+                    //                    string pattern = @"/\w+\\$/";
+                    //string correctPath = pathTextBox.Text.Replace(dirListBox.SelectedItem.ToString(), "");
+                    //                   Regex rgx = new Regex(pattern);
+                    //pathTextBox.Text.Replace(@"/\w+\\$/", "");
+                    //pathTextBox.Text.Split(rgx);
+
+                }
                 dirListBox.Items.Clear();
                 FillListBox(dirListBox, selectedDirectory);
+                dirListBox.Items.Insert(0, "..");
+                /*if (dirListBox.SelectedItem.ToString() == "..")
+                {
+                    pathTextBox.Text.Replace("..", "kuki");
+                }*/
             }
             else
             {
